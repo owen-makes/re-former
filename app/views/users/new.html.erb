@@ -1,15 +1,26 @@
 <h1>New User</h1>
 
-<%= form_tag("/users", method: "post") do %>
-  <%= label_tag(:username, "Username") %>
-  <%= text_field_tag(:username) %>
-  <%= label_tag(:email, "E-mail") %>
-  <%= text_field_tag(:email) %>
-  <%= label_tag(:password, "Password") %>
-  <%= password_field_tag(:password) %>
-  <%= submit_tag("Create New User") %>
-
+<%= form_with model: @user do |form|%>
+  <%= form.label :email %>
+  <%= form.text_field :email, placeholder:'example@example.com' %>
+  <%= form.label :username%>
+  <%= form.text_field :username, required: true, value: 'iamGOD' %>
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+  <%= form.submit %>
 <% end %>
+
+
+<%# Rails form_tag (soft deprecated) form %>
+<%#= form_tag("/users", method: "post") do %>
+  <%#= label_tag(:username, "Username") %>
+  <%#= text_field_tag(:username) %>
+  <%#= label_tag(:email, "E-mail") %>
+  <%#= text_field_tag(:email) %>
+  <%#= label_tag(:password, "Password") %>
+  <%#= password_field_tag(:password) %>
+  <%#= submit_tag("Create New User") %>
+<%# end %>
 
 <%# HTML Form Below %>
 <%# <form action="/users" method="post" accept-charset="UTF-8">
